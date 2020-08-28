@@ -52,3 +52,17 @@
     <%= form.submit 'submit', class: 'btn btn-primary' %>
   </div>
 <% end %>
+
+<select class="js-example-basic-single" name="state">
+  <option value="AL">Alabama</option>
+    ...
+  <option value="WY">Wyoming</option>
+</select>
+
+<script>
+// In your Javascript (external .js resource or <script> tag)
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+
+</script>
