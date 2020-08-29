@@ -65,5 +65,13 @@ import 'tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.css'
 import 'font-awesome/css/font-awesome.css'
 
 document.addEventListener('turbolinks:load', function(){
-  $('#datetimepicker1').datetimepicker();
+  $('#start_at').datetimepicker({format: 'YYYY/MM/DD'});
+  $('#end_at').datetimepicker({format: 'YYYY/MM/DD'});
+
+  $("#start_at").on("change.datetimepicker", function (e) {
+    $('#end_at').datetimepicker('minDate', e.date);
+  });
+  $("#end_at").on("change.datetimepicker", function (e) {
+      $('#start_at').datetimepicker('maxDate', e.date);
+  });
 })
