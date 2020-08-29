@@ -58,3 +58,12 @@ document.addEventListener('turbolinks:load', function(){
     })
   })
 })
+
+// tempusdominus-bootstrap-4
+import 'tempusdominus-bootstrap-4'
+import 'tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.css'
+import 'font-awesome/css/font-awesome.css'
+
+document.addEventListener('turbolinks:load', function(){
+  $('#datetimepicker1').datetimepicker();
+})
