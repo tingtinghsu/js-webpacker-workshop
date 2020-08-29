@@ -23,3 +23,13 @@ import 'select2'
 import 'select2/dist/css/select2.css'
 
 window.$ = $
+
+document.addEventListener('turbolinks:load', function(){
+
+  // select2
+  $("[name='product[currency]']").select2();
+  $("[name='product[tag_list][]']").select2({
+    multiple: true,
+    tags: true
+  });
+})
