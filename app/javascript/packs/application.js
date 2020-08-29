@@ -18,6 +18,7 @@ require("channels")
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
 
+// select2
 import $ from 'jquery'
 import 'select2'
 import 'select2/dist/css/select2.css'
@@ -25,11 +26,35 @@ import 'select2/dist/css/select2.css'
 window.$ = $
 
 document.addEventListener('turbolinks:load', function(){
-
-  // select2
   $("[name='product[currency]']").select2();
   $("[name='product[tag_list][]']").select2({
     multiple: true,
     tags: true
   });
+})
+
+// sweetalert2
+import Swal from 'sweetalert2'
+
+document.addEventListener('turbolinks:load', function(){
+  document.querySelector('.actions input').addEventListener('click', function(e){
+    e.preventDefault()
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "Create new product",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire({
+          showConfirmButton: false,
+          title: 'Loading...'
+        })
+        document.querySelector('form').submit()
+      }
+    })
+  })
 })
